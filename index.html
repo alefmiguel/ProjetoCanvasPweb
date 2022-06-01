@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <title> PROJETO CANVAS PWEB </title> -->
+	<title> PROCESSANDO O CANVAS NA SEÇÃO HEAD </title>
+	<script src="/script/calc.js"></script>
+	<link rel="stylesheet" href="/style/config.css">
+</head>
+<body>
+	<canvas id="canvas-name" width="400" height="400">
+		Seu navegador não suporta essa tecnologia.
+	</canvas>
+
+	<script>
+		var canvas = document.getElementById('canvas-name');
+		var ctx = canvas.getContext('2d');
+
+		// // ctx.fillRect(40, 50, 100, 100);
+		// // ctx.strokeRect(50, 50, 100, 100);
+		
+		// // PRIMEIRO PREENCHE
+		// // DEPOIS DESENHA 
+		// ctx.fillStyle = 'orange'; // colore o retângulo
+		// ctx.fillRect(50, 50, 100, 100); // cria o retângulo com fundo preenchido
+		
+		// ctx.lineWidth = 2;
+		// ctx.strokeStyle = 'blue';
+		// ctx.strokeRect(50, 50, 100, 100); // cria o retângulo com borda apenas
+
+		ctx.beginPath(); // PRIMEIRO INICIO
+
+		ctx.moveTo(75, 250); // PONTO INICIAL
+		ctx.lineTo(150, 50);
+		ctx.lineTo(225, 250);
+		ctx.lineTo(35, 120);
+		ctx.lineTo(250, 120);
+		ctx.lineTo(75, 250);
+
+		// ctx.fill()
+		ctx.lineWidth = 2;
+		ctx.strokeStyle = 'red';
+
+		ctx.stroke(); // desenha tudo o que foi salvo nos caminhos ou PATHS
+		
+	</script>
+</body>
+</html>
