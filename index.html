@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <title> PROJETO CANVAS PWEB </title> -->
 	<title> PROCESSANDO O CANVAS NA SEÇÃO HEAD </title>
-	<script src="/script/calc.js"></script>
+	<script src="/script/calc.js" defer></script>
 	<link rel="stylesheet" href="/style/config.css">
 </head>
 <body>
@@ -15,11 +15,12 @@
 	</canvas>
 
 	<script>
+		// iniciei as variáveis abaixo)
 		var canvas = document.getElementById('canvas-name');
 		var ctx = canvas.getContext('2d');
 
-		// // ctx.fillRect(40, 50, 100, 100);
-		// // ctx.strokeRect(50, 50, 100, 100);
+		// ctx.fillRect(40, 50, 100, 100);
+		// ctx.strokeRect(50, 50, 100, 100);
 		
 		// // PRIMEIRO PREENCHE
 		// // DEPOIS DESENHA 
@@ -30,21 +31,73 @@
 		// ctx.strokeStyle = 'blue';
 		// ctx.strokeRect(50, 50, 100, 100); // cria o retângulo com borda apenas
 
-		ctx.beginPath(); // PRIMEIRO INICIO
-
-		ctx.moveTo(75, 250); // PONTO INICIAL
-		ctx.lineTo(150, 50);
-		ctx.lineTo(225, 250);
-		ctx.lineTo(35, 120);
-		ctx.lineTo(250, 120);
-		ctx.lineTo(75, 250);
-
-		// ctx.fill()
-		ctx.lineWidth = 2;
-		ctx.strokeStyle = 'red';
-
-		ctx.stroke(); // desenha tudo o que foi salvo nos caminhos ou PATHS
+		// // desenhando a estrela abaixo)
+		// ctx.strokeStyle = 'red';
+		// ctx.beginPath(); // PRIMEIRO INICIO
+		// ctx.moveTo(75, 250); // PONTO INICIAL
+		// ctx.lineTo(150, 50);
+		// ctx.lineTo(225, 250);
+		// ctx.lineTo(35, 120);
+		// ctx.lineTo(250, 120);
+		// ctx.lineTo(75, 250);
+		// ctx.stroke(); // desenha tudo o que foi salvo nos caminhos ou PATHS
 		
-	</script>
+		// // desenhando um arco abaixo)
+		// ctx.lineWidth = 6;
+		// ctx.strokeStyle = 'black';
+		// ctx.beginPath();
+		// ctx.arc(50, 50, 40, 90*Math.PI/180, 270*Math.PI/180, false);
+		// ctx.stroke();
+		// ctx.fillStyle = 'blue';
+		
+		// ctx.fill();
+
+		// // segundo arco criado abaixo)
+
+		// ctx.beginPath();
+		// ctx.arc(55, 50, 40, 90*Math.PI/180, 270*Math.PI/180, true);
+		// ctx.fillStyle = 'tomato';
+		// ctx.stroke();
+		// ctx.fill();
+
+		// // circunferência completa abaixo)
+		// ctx.lineWidth = 3;
+		// ctx.beginPath();
+		// ctx.arc(250, 50, 40, 0, 2*Math.PI);
+		// ctx.fillStyle = 'orange';
+		// ctx.fill();
+		// ctx.stroke();
+
+		// trabalhando com imagens no canvas)
+		var img = new Image();
+		img.src = 'media/ovni.png'; 
+		img.onload = function() {
+			var x = 20;
+			
+			for (var i = 1; i <= 5; i++) {
+				ctx.drawImage(img, x, 20, 64, 32);
+				// a metade do tamanho abaixo)
+				// ctx.drawImage(img, x, 20, 32, 16);
+
+				// o dobro do tamanho abaixo)
+				// ctx.drawImage(img, x, 20, 64, 64);
+				x += 70;
+			}
+		}
+
+		var img = new Image();
+		img.src = 'media/explosao.png'
+		img.onload = function() {
+			var y = 20;
+
+			for (var i = 1; 1 <= 5; i++) {
+				ctx.drawImage(
+				img,
+				80, 10, 60, 65,
+				20, 20, 60, 65
+				);
+			}
+		}
+ 	</script>
 </body>
 </html>

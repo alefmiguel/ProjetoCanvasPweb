@@ -37,3 +37,9 @@ context.fillRect(50, 50, 100, 100);
 // antes de tudo, usa-se o beginPath()
 // beginPath -> ótimo pra não sobrepôr
 
+//! ARCOS CIRCUNFERÊNCIAS */
+// método usado: ARC
+// o arco é parte de uma circunferência
+// criar linhas curvas (mais complexo)
+// circunferência = arco de 360°
+
