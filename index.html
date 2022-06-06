@@ -6,11 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <title> PROJETO CANVAS PWEB </title> -->
 	<title> PROCESSANDO O CANVAS NA SEÇÃO HEAD </title>
-	<script src="/script/calc.js" defer></script>
+	<script src="/script/calc.js"></script>
 	<link rel="stylesheet" href="/style/config.css">
 </head>
 <body>
-	<canvas id="canvas-name" width="400" height="400">
+	<canvas id="canvas-name" width="800" height="900">
 		Seu navegador não suporta essa tecnologia.
 	</canvas>
 
@@ -69,35 +69,66 @@
 		// ctx.stroke();
 
 		// trabalhando com imagens no canvas)
-		var img = new Image();
-		img.src = 'media/ovni.png'; 
-		img.onload = function() {
-			var x = 20;
+		// var img = new Image();
+		// img.src = 'media/ovni.png'; 
+		// img.onload = function() {
+		// 	var x = 40;
 			
-			for (var i = 1; i <= 5; i++) {
-				ctx.drawImage(img, x, 20, 64, 32);
-				// a metade do tamanho abaixo)
-				// ctx.drawImage(img, x, 20, 32, 16);
+		// 	for (var i = 1; i <= 5; i++) {
+		// 		ctx.drawImage(img, x, 20, 64, 32);
+		// 		// a metade do tamanho abaixo)
+		// 		// ctx.drawImage(img, x, 20, 32, 16);
 
-				// o dobro do tamanho abaixo)
-				// ctx.drawImage(img, x, 20, 64, 64);
-				x += 70;
-			}
-		}
+		// 		// o dobro do tamanho abaixo)
+		// 		// ctx.drawImage(img, x, 20, 64, 64);
+		// 		x += 70;
+		// 	}
+		// }
 
-		var img = new Image();
-		img.src = 'media/explosao.png'
-		img.onload = function() {
-			var y = 20;
+		// var img = new Image();
+		// img.src = 'media/explosao.png'
+		// img.onload = function() {
+		// 	ctx.drawImage(
+		// 	img,
+		// 	80, 10, 60, 65,
+		// 	20, 20, 60, 65
+		// 	)
+		// }
 
-			for (var i = 1; 1 <= 5; i++) {
-				ctx.drawImage(
-				img,
-				80, 10, 60, 65,
-				20, 20, 60, 65
-				);
-			}
-		}
+		// usando o método SAVE e RESTORE
+		// ctx.fillStyle = 'green';
+		// ctx.strokeStyle = 'black';
+		// ctx.lineWidth = '2';
+		// ctx.strokeRect(50, 50, 25, 25);
+		// ctx.fillRect(50, 50, 25, 25);
+
+		// ctx.save();
+
+		// ctx.fillStyle = 'purple';
+
+		// ctx.restore(); // retornou para o verde
+
+		// ctx.strokeRect(100, 50, 25, 25);
+		// ctx.fillRect(100, 50, 25, 25);
+
+		// var x = 20;
+		// var y = 100;
+		// var raio = 100;
+
+		// requestAnimationFrame(mexerBola);
+
+		// function mexerBola() {
+		// 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+		// 	ctx.beginPath();
+		// 	ctx.arc(x, y, raio, 0, Math.PI*2);
+		// 	ctx.fill();
+		// 	x += 2
+		// 	raio -= .3
+		// 	y += 2
+		// 	requestAnimationFrame(mexerBola);
+		// }
+
+		var agora = new Date().getTime();
  	</script>
 </body>
 </html>
