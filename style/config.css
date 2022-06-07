@@ -8,9 +8,12 @@ body{
     display: grid;
     place-items: center;
     height: 100vh;
+    background-color: tomato;
 }
 
 #canvas-name {
     outline: 1px solid black;
     border-radius: 15px;
+    background-color: aliceblue;
+    box-shadow: 2px 2px 4px black;
 }

@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <title> PROJETO CANVAS PWEB </title> -->
-	<title> PROCESSANDO O CANVAS NA SEÇÃO HEAD </title>
+	<title> CANVAS PWEB </title>
 	<script src="/script/calc.js"></script>
 	<link rel="stylesheet" href="/style/config.css">
 </head>
@@ -113,22 +113,58 @@
 
 		// var x = 20;
 		// var y = 100;
-		// var raio = 100;
+		// var raio = 50;
 
 		// requestAnimationFrame(mexerBola);
 
+		// var anterior = new Date().getTime();
+		// requestAnimationFrame(mexerBola);
+			
 		// function mexerBola() {
+		// 	var agora = new Date().getTime();
+		// 	var decorrido = agora - anterior;
+
 		// 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 		// 	ctx.beginPath();
 		// 	ctx.arc(x, y, raio, 0, Math.PI*2);
 		// 	ctx.fill();
-		// 	x += 2
-		// 	raio -= .3
+		// 	ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+		// 	var velocidade = 50;
+		// 	x += velocidade * decorrido / 1000;
+		// 	// raio -= .3
 		// 	y += 2
-		// 	requestAnimationFrame(mexerBola);
-		// }
 
-		var agora = new Date().getTime();
+		// 	anterior = agora;
+		// 	requestAnimationFrame(mexerBola);
+		// }	
+
+		// função construtora
+		function Caneta(cor, espessura) {
+			this.cor = cor;
+			this.espessura = espessura;
+
+			// método para refinar uma caneta
+			this.refinar = function() {
+				this.espessura -= 0.5;
+			}
+		}
+		
+		// instanciando os objetos da classe caneta
+		var caneta1 = new Caneta('vermelha', 2);
+		var caneta2 = new Caneta('azul', 3);
+
+		// document.write(caneta1.cor + ':' + caneta1.espessura); 
+		// document.write('<br>');
+		// document.write(caneta2.cor + ':' + caneta2.espessura);
+
+		// outra forma de instanciar (sem construtor)
+		var caneta3 = {
+			cor: 30,
+			espessura: 4,
+			refinar: function() {
+				this.espessura -= 0.3;
+			}
+		}
  	</script>
 </body>
 </html>
