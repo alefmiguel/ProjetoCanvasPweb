@@ -6,8 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <title> PROJETO CANVAS PWEB </title> -->
 	<title> CANVAS PWEB </title>
-	<script src="/script/calc.js"></script>
+	<!-- <script src="/script/calc.js"></script> -->
 	<link rel="stylesheet" href="/style/config.css">
+	<link type="image/png" sizes="16x16" rel="icon" href="/media/icons8-canvas-16.png">
 </head>
 <body>
 	<canvas id="canvas-name" width="800" height="900">
@@ -15,9 +16,9 @@
 	</canvas>
 
 	<script>
-		// iniciei as variáveis abaixo)
-		var canvas = document.getElementById('canvas-name');
-		var ctx = canvas.getContext('2d');
+		// // iniciei as variáveis abaixo)
+		// var canvas = document.getElementById('canvas-name');
+		// var ctx = canvas.getContext('2d');
 
 		// ctx.fillRect(40, 50, 100, 100);
 		// ctx.strokeRect(50, 50, 100, 100);
@@ -138,33 +139,93 @@
 		// 	requestAnimationFrame(mexerBola);
 		// }	
 
-		// função construtora
-		function Caneta(cor, espessura) {
-			this.cor = cor;
-			this.espessura = espessura;
+		// // função construtora
+		// function Caneta(cor, espessura) {
+		// 	this.cor = cor;
+		// 	this.espessura = espessura;
 
-			// método para refinar uma caneta
-			this.refinar = function() {
-				this.espessura -= 0.5;
-			}
-		}
+		// 	// método para refinar uma caneta
+		// 	this.refinar = function() {
+		// 		this.espessura -= 0.5;
+		// 	}
+		// }
 		
-		// instanciando os objetos da classe caneta
-		var caneta1 = new Caneta('vermelha', 2);
-		var caneta2 = new Caneta('azul', 3);
+		// // instanciando os objetos da classe caneta
+		// var caneta1 = new Caneta('vermelha', 2);
+		// var caneta2 = new Caneta('azul', 3);
 
-		// document.write(caneta1.cor + ':' + caneta1.espessura); 
-		// document.write('<br>');
-		// document.write(caneta2.cor + ':' + caneta2.espessura);
+		// // document.write(caneta1.cor + ':' + caneta1.espessura); 
+		// // document.write('<br>');
+		// // document.write(caneta2.cor + ':' + caneta2.espessura);
 
-		// outra forma de instanciar (sem construtor)
-		var caneta3 = {
-			cor: 30,
-			espessura: 4,
-			refinar: function() {
-				this.espessura -= 0.3;
+		// // outra forma de instanciar (sem construtor)
+		// var caneta3 = {
+		// 	cor: 30,
+		// 	espessura: 4,
+		// 	refinar: function() {
+		// 		this.espessura -= 0.3;
+		// 	}
+		// }
+
+		document.addEventListener('DOMContentLoaded', () => {
+
+			const pincel = {
+				ativo: false,
+				pos: {x: 0, y: 0},
+				posAnterior: null
 			}
-		}
+
+			const tela = document.querySelector('#canvas-name');
+			const ctx = tela.getContext('2d');
+
+			tela.width = 700;
+			tela.heigth = 500;
+
+			ctx.lineWidth = 10;
+			ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)';
+
+			const desenharLinha = (linha) => {
+				ctx.beginPath();
+				ctx.moveTo(linha.posAnterior.x, linha.posAnterior.y);
+				ctx.lineTo(linha.pos.x, linha.pos.y);
+				ctx.stroke();
+			}
+
+			tela.onmousedown = (evento) => {
+				pincel.ativo = true;
+			}
+
+			tela.onmouseup = (evento) => {
+				pincel.ativo = false;
+			}
+
+			tela.onmousemove = (evento) => {
+				pincel.pos.x = evento.clientX
+				pincel.pos.y = evento.clientY
+				pincel.movendo = true;
+			}
+
+			const ciclo = () => {
+				if (pincel.ativo && pincel.movendo && pincel.posAnterior) {
+					desenharLinha({
+						pos: pincel.pos,
+						posAnterior: pincel.posAnterior
+					});
+					pincel.movendo = false;
+				}
+
+				pincel.posAnterior = {
+					x: pincel.pos.x, 
+					y: pincel.pos.y
+
+					// {... pincel.pos}
+				}
+
+				setTimeout(ciclo, 10);
+			}
+
+			ciclo();
+		})
  	</script>
 </body>
 </html>
