@@ -1,14 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/others/animacao/style-animacao.css">
 	<title> Loop & Sprites </title>
-	<script src="/others/animacao/animacao.js"></script>
-	<script src="/others/animacao/bola.js"></script>
+	<script src="/others/animacao/animacao.js" defer></script>
+	<script src="/others/animacao/bola.js" defer></script>
 </head>
 <body>
 	<canvas id="canvas-animacao" width="500" height="500"> Seu programa não funcionou </canvas>
+
+	<script src="animacao.js"></script>
+	<script src="bola.js"></script>
+	<script> 
+		// MAIN DO JAVASCRIPT
+		let canvas = document.getElementById('canvas-animacao');
+		let context = canvas.getContext('2d');
+
+		let b1 = new Bola(context);
+		b1.x = 100;
+		b1.y = 100;
+		// alterar velocidade da bola 1
+		b1.velocidadeX = 5;
+		b1.velocidadeY = -5;
+		b1.cor = 'red';
+		b1.raio = 20;
+
+		let b2 = new Bola(context);
+		b2.x = 200;
+		b2.y = 100;
+		// alterar velocidade da bola 2
+		b2.velocidadeX = -10;
+		b2.velocidadeY = 20;
+		b2.cor = 'blue';
+		b2.raio = 30;
+
+		let animacao = new Animacao(context);
+		animacao.novoSprite(b1);
+		animacao.novoSprite(b2);
+
+		animacao.ligar();
+
+	</script>
 </body>
 </html>
