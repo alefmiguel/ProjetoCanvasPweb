@@ -7,7 +7,7 @@
 	<!-- <title> PROJETO CANVAS PWEB </title> -->
 	<title> CANVAS PWEB </title>
 	<!-- <script src="/script/calc.js"></script> -->
-	<link rel="stylesheet" href="/style/config.css">
+	<link rel="stylesheet" href="style/config.css">
 	<link type="image/png" sizes="16x16" rel="icon" href="/media/icons8-canvas-16.png">
 </head>
 <body>
@@ -178,8 +178,8 @@
 			const tela = document.querySelector('#canvas-name');
 			const ctx = tela.getContext('2d');
 
-			tela.width = 700;
-			tela.heigth = 500;
+			// tela.width = 800;
+			// tela.heigth = 900;
 
 			ctx.lineWidth = 10;
 			ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)';
@@ -200,8 +200,8 @@
 			}
 
 			tela.onmousemove = (evento) => {
-				pincel.pos.x = evento.clientX
-				pincel.pos.y = evento.clientY
+				pincel.pos.x = evento.offsetX
+				pincel.pos.y = evento.offsetY
 				pincel.movendo = true;
 			}
 
@@ -221,7 +221,7 @@
 					// {... pincel.pos}
 				}
 
-				setTimeout(ciclo, 10);
+				requestAnimationFrame(ciclo);
 			}
 
 			ciclo();
