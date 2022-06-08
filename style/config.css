@@ -8,7 +8,7 @@ body {
     display: grid;
     place-items: center;
     height: 100vh;
-    background-color: rgb(255, 108, 71);
+    background-color: #401B12;
 }
 
 #canvas-name {
@@ -16,4 +16,28 @@ body {
     border-radius: 15px;
     background-color: white;
     box-shadow: 2px 2px 4px black;
+    position: relative;
+    z-index: 1;
+}
+
+#btn-clear {
+    position: absolute;
+    z-index: 2;
+    top: 90vh;
+    left: calc(50vw - 50px);
+    border-radius: 50%;
+    aspect-ratio: 1;
+    height: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #6b2e1f;
+    color: white;
+    font-size: 35px;
+}
+
+#div-size-canvas {
+    order: -1;
+    width: 800px;
+    height: 900px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 40px #FF6C47;
 }
