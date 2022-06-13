@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style-animacao.css">
 	<title> Loop & Sprites </title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
 	<script src="/others/animacao/animacao.js" defer></script>
 	<script src="/others/animacao/bola.js" defer></script>
 </head>
