@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Movimento Com Keydown </title>
+</head>
+<body>
+	<canvas id="canvas-teclado-1" width="500" height="500"></canvas>
+
+	<script>
+		// interação por meio do teclado aqui
+		// cada tecla tem o seu KEYCODE (codigo do teclado)
+
+		// INICIALIZAÇÃO DO CANVAS ABAIXO
+		var canvas = document.querySelector("#canvas-teclado-1");
+		var context = canvas.getContext("2d");
+
+		// POSIÇÃO INICIAL DO PERSONAGEM
+		var posicao = 0;
+		desenharPeronsagem();
+		
+		// ADIÇÃO DE UM EVENTO DIANTE DA CAPTURA DE UM ELEMENTO
+		document.addEventListener("keydown", function(evento) {
+		// ou document.addEventListener("keydown", (evento) => {}
+			if (evento.keyCode == 37) {
+				// seta para ESQUERDA
+				posicao -= 10; // 10 posições pra esquerda
+				desenharPeronsagem();
+			}
+			else if (evento.keyCode == 39) {
+				// seta para DIREITA
+				posicao += 10; // 10 posições pra direita
+				desenharPeronsagem();
+			}
+			else if (evento.keyCode == 26) {
+				// seta para CIMA
+			}
+
+			else if (evento.keyCode == 28) {
+				// seta para BAIXO
+			}
+		});
+		
+		// PERSONAGEM (EXEMPLO SIMPLES)
+		function desenharPeronsagem() {
+			context.clearRect(0, 0, 500, 500);
+			context.fillRect(posicao, 0, 10, 10);
+		}
+
+	</script>
+</body>
+</html>

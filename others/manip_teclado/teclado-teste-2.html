@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="teclado.js"></script>
+	<title> Movimentando JS +EFICIENTE </title>
+</head>
+<body>
+	<canvas id="canvas-teclado-2" width="500" height="500"> </canvas>
+
+	<script> // MAIN DE TODO O JAVASCRIPT 
+		var canvas = document.querySelector('#canvas-teclado-2');
+		var ctx = canvas.getContext('2d');
+
+		var posicao = 0;
+		desenharPersonagem(); 
+
+		// MANIPULADOR DO TECLADO
+		var teclado = new Teclado(document);
+
+		// LOOP DA ANIMAÇÃO DO TECLADO
+		requestAnimationFrame(animar);
+
+		// OTIMIZANDO O TRABALHO ANTERIOR
+		function animar() {
+			if (teclado.pressionada(SETA_ESQUERDA))
+				posicao -= 10;
+			else if (teclado.pressionada(SETA_DIREITA))
+				posicao += 10;
+
+			desenharPersonagem();
+			requestAnimationFrame(animar);
+		}
+
+		function desenharPersonagem() {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.fillRect(posicao, 100, 20, 50);
+		}
+	</script>
+</body>
+</html>
