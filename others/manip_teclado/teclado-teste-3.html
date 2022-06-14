@@ -4,17 +4,18 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="/others/animacao/animacao.js"></script>
+	<script src="teclado.js"></script>
+	<script src="heroi.js"></script>
 	<script src="/others/animacao/bola.js"></script>
-	<script src="/others/manip_teclado/teclado.js"></script>
-	<!-- <script src="heroi.js"></script> -->
+	<script src="/others/animacao/animacao.js"></script>
+	<link rel="stylesheet" href="heroi-config.css">
 	<title> Movimentando e Atirando </title>
 </head>
 <body>
 	<canvas id="canvas-teclado-3" width="500" height="500"></canvas>
 
 	<script> // ÁREA DE TESTE GERAL (MAIN)
-		var canvas = document.querySelector("#canva-teclado-3");
+		var canvas = document.querySelector("#canvas-teclado-3");
 		var ctx = canvas.getContext('2d');
 
 		// INSTANCIANDO MINHAS CLASSES P HEROI
@@ -23,15 +24,17 @@
 
 		var heroi = new Heroi(ctx, teclado);
 		heroi.x = 0;
-		heroi.y = 100;
+		heroi.y = 230;
 		animacao.novoSprite(heroi);
+
+		animacao.ligar();
 
 		// MÉTODO PARA DISPARO 
 		teclado.disparou(ESPAÇO, function() {
 			heroi.atirar();
 		});
 
-		animacao.ligar();
+		var heroi = new Heroi(ctx, teclado, animacao);
 	</script>
 </body>
 </html>

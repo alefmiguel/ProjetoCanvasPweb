@@ -10,14 +10,14 @@ function Bola(context) {
 
 Bola.prototype = {
     atualizar: function() {
-        let ctx = this.context;
+        // let ctx = this.context;
 
-        // motivo de rebater
-        if(this.x < this.raio || this.x > ctx.canvas.width - this.raio)
-            this.velocidadeX *= -1;
+        // // motivo de rebater
+        // if(this.x < this.raio || this.x > ctx.canvas.width - this.raio)
+        //     this.velocidadeX *= -1;
 
-        if(this.y < this.raio || this.y > ctx.canvas.height - this.raio)
-            this.velocidadeY *= -1;
+        // if(this.y < this.raio || this.y > ctx.canvas.height - this.raio)
+        //     this.velocidadeY *= -1;
 
         this.x += this.velocidadeX;
         this.y += this.velocidadeY;
@@ -25,15 +25,11 @@ Bola.prototype = {
 
     desenhar: function() {
         let ctx = this.context;
-
         ctx.save();
-
         ctx.fillStyle = this.cor;
-
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.raio, 0, 2 * Math.PI, false);
         ctx.fill();
-
         ctx.restore();
     }
 }

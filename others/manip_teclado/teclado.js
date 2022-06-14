@@ -28,7 +28,8 @@ function Teclado(elemento) {
 	});
 
 	elemento.addEventListener('keyup', function(evento) {
-		teclado.pressionadas[evento.keyCode] = false; // desativa quando eu solto
+		// desativa quando eu solto
+		teclado.pressionadas[evento.keyCode] = false;
 		teclado.disparadas[evento.keyCode] = false;
 	});
 }
@@ -40,6 +41,6 @@ Teclado.prototype = {
 	},
 
 	disparou: function(tecla, callback) {
-		this.funcoesDisparo[tecla] = callBack;
+		this.funcoesDisparo[tecla] = callback;
 	}
 }

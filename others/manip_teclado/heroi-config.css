@@ -1,0 +1,17 @@
+body {
+	background-color: rgb(90, 50, 143);
+}
+
+#canvas-teclado-3 {
+	border: 5px solid;
+	background-color: brown;
+	border-radius: 15px;
+	box-shadow: 0px 0px 10px black;
+	margin: auto;
+	padding: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: absolute;
+}
