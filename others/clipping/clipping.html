@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CLIPPING </title>
+</head>
+<body>
+    <canvas id="canvas-clipping" width="500" height="500"></canvas>
+
+    <script> // ÁREA DE TESTE (MAIN)
+        var imgSonic = new Image(); // instanciar
+        imgSonic.src = 'spritesheet.png'; // local img
+        imgSonic.onload = function() {
+            // quando a imagem carregar... fazer tal coisa
+            var rows = 3;
+            var columns = 8;
+
+            var largura = imgSonic.width / columns;
+            var altura = imgSonic.height / rows;
+
+            var wantRow = 2;
+            var wantColumn = 7;
+
+            var x = largura * wantColumn;
+            var y = altura * wantRow;
+        }  
+    </script>
+</body>
+</html>
