@@ -1,7 +1,7 @@
-function Bola(context) {
+function Bola(context, x, y) {
     this.context = context;
-    this.x = 0;
-    this.y = 0;
+    this.x = x;
+    this.y = y;
     this.velocidadeX = 0;
     this.velocidadeY = 0;
     this.cor = 'black';

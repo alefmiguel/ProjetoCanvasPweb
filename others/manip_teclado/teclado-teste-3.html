@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
@@ -10,6 +10,7 @@
 	<script src="/others/animacao/animacao.js"></script>
 	<link rel="stylesheet" href="heroi-config.css">
 	<title> Movimentando e Atirando </title>
+	<link rel="shortcut icon" href="hero.ico" type="image/x-icon">
 </head>
 <body>
 	<canvas id="canvas-teclado-3" width="500" height="500"></canvas>
@@ -22,7 +23,7 @@
 		var teclado = new Teclado(document);
 		var animacao = new Animacao(ctx);
 
-		var heroi = new Heroi(ctx, teclado);
+		var heroi = new Heroi(ctx, teclado, animacao);
 		heroi.x = 0;
 		heroi.y = 230;
 		animacao.novoSprite(heroi);
@@ -34,7 +35,7 @@
 			heroi.atirar();
 		});
 
-		var heroi = new Heroi(ctx, teclado, animacao);
+		
 	</script>
 </body>
 </html>

@@ -33,9 +33,7 @@ Heroi.prototype = {
 
 	atirar: function() {
 		// ATÉ PORQUE O TIRO TAMBÉM É UMA BOLA, PORÉM MENOR
-		var tiro = new Bola(this.ctx);
-		tiro.x = this.x + 10;
-		tiro.y = this.y + 10;
+		var tiro = new Bola(this.ctx, this.x + 10, this.y + 20);
 		tiro.raio = 10;
 		tiro.cor = 'white';
 
@@ -44,7 +42,7 @@ Heroi.prototype = {
 			tiro.velocidadeX = -20;
 		// SE TIVER PRESSIONADO A DIREITA, VAI PRA DIREITA
 		else 
-			tiro.velocidadeY = 20;
+			tiro.velocidadeX = 20;
 
 		this.animacao.novoSprite(tiro);
 	}
