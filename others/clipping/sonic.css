@@ -1,0 +1,16 @@
+#canvas-sonic {
+    background-color: rgb(194, 72, 82);
+    outline: 3px solid black;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px black;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+body {
+    background-color: aqua;
+}
