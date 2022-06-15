@@ -25,6 +25,19 @@
 
             var x = largura * wantColumn;
             var y = altura * wantRow;
+
+            var ctx = document.querySelector('#canvas-clipping').getContext('2d');
+            ctx.drawImage(
+                imgSonic,
+                x,
+                y,
+                largura,
+                altura,
+                100, // POSIÇÃO NO CANVAS ONDE QUERO DESENHAR
+                100,
+                largura,
+                altura
+            )
         }  
     </script>
 </body>

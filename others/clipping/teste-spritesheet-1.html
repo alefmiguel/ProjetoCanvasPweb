@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> TESTE SPRITESHEET </title>
+    <script src="spritesheet.js"></script>
+</head>
+<body>
+    <canvas id="canvas-spritesheet-1" width="500" height="500"></canvas>
+
+    <script> // MAIN DO JS - ÁREA DE TESTE AQUI
+        var ctx = document.querySelector('#canvas-spritesheet-1').getContext('2d');
+        var imgSonic = new Image(); // instanciar antes
+        imgSonic.src = 'spritesheet.png';
+
+        var sheet = new Spritesheet(ctx, imgSonic, 3, 8);
+
+        sheet.intervalo = 60; // milissegundos
+        sheet.linha = 1; // DIREITA
+        imgSonic.onload = gameLoop; // animação em si
+
+        function gameLoop() {
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            sheet.proximoQuadro();
+            sheet.desenhar(100, 100);
+
+            requestAnimationFrame(gameLoop);
+        }
+    </script>
+</body>
+</html>
