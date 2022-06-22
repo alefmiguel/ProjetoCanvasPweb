@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> EFEITO PARALLAX </title>
+	<script src="animacao.js"></script>
+	<script src="fundo.js"></script>
+	<link rel="stylesheet" href="parallax.css">
+</head>
+<body>
+	<canvas id="canvas-fundo" width="500" height="500"></canvas>
+
+	<script> // MAIN DO JAVASCRIPT
+
+		// carregando as imagens
+		var imgEspaco = new Image();
+		imgEspaco.src = 'fundo-espaco.png';
+		
+		var imgEstrelas = new Image();
+		imgEstrelas.src = 'fundo-estrelas.png';
+
+		var imgNuvens = new Image();
+		imgNuvens.src = 'fundo-nuvens.png';
+
+		// para que todas sejam carregadas...
+		var carregadas = 0;
+		var total = 3;
+
+		// todas as imagems convertem na mesma função...
+		imgEspaco.onload = carregando;
+		imgEstrelas.onload = carregando;
+		imgNuvens.onload = carregando;
+
+		// vai aumentando até chegar no total...
+		function carregando() {
+			carregadas++;
+			if (carregadas == total) iniciar();
+		}
+
+		// função base para todo o projeto
+		function iniciar() {
+			// separar as variáveis para trabalhar melhor...
+			var canvas = document.querySelector('#canvas-fundo');var ctx = canvas.getContext('2d'); 
+
+			// instanciando os objetos do tipo fundo...
+			var fundoEspaco = new Fundo(ctx, imgEspaco);
+			var fundoEstrelas = new Fundo(ctx, imgEstrelas);
+			var fundoNuvens = new Fundo(ctx, imgNuvens);
+
+			// parallax => objetos com velocidades diferentes
+			fundoEspaco.velocidade = 3;
+			fundoEstrelas.velocidade = 7;
+			fundoNuvens.velocidade = 10;
+
+			var animacao = new Animacao(ctx);
+			animacao.novoSprite(fundoEspaco);
+			animacao.novoSprite(fundoEstrelas);
+			animacao.novoSprite(fundoNuvens);
+			animacao.ligar();
+		}
+	</script>
+</body>
+</html>

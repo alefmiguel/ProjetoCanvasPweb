@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> NAVE ESPACIAL CONTROLÁVEL </title>
+	<script src="animacao.js"></script>
+	<script src="teclado.js"></script>
+	<script src="nave.js"></script>
+	<script src="tiro.js"></script>
+</head>
+<body>
+	<canvas id="canvas-nave" width="500" height="500"></canvas>
+
+	<script> // SCRIPT DE TESTE
+		var canvas = document.querySelector('#canvas-nave');
+		var ctx = canvas.getContext('2d');
+
+		// GAME ENGINE 
+		var teclado = new Teclado(document);
+		var animacao = new Animacao(ctx);
+
+		var imgNave = new Image();
+		imgNave.src = 'nave.png';
+
+		// SPRITE DA NAVE
+		var nave = new Nave(ctx, teclado, imgNave);
+		animacao.novoSprite(nave);
+
+		teclado.disparou(ESPAÇO, function() {
+			nave.atirar();
+		});
+
+		imgNave.onload = function() {
+			nave.x = canvas.width / 2 - imgNave.width / 2;
+			nave.y = canvas.height - imgNave.height;
+			nave.velocidade = 5;
+			animacao.ligar();
+		}
+	</script>
+</body>
+</html>
