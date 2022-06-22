@@ -3,6 +3,7 @@ function Fundo(ctx, imagem) {
 	this.ctx = ctx;
 	this.imagem = imagem;
 	this.velocidade = 0;
+	this.posicaoEmenda = 0;
 }
 
 Fundo.prototype = {
