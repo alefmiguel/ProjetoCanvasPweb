@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 #canvas-fundo {
 	margin: auto;
 	top: 0;
@@ -18,8 +20,15 @@
 	animation: pulsar .6s ease infinite;
 }
 
+h1 {
+	font-family: 'Press Start 2P', cursive;
+	text-align: center;
+	font-size: 45px;
+	color: rgb(52, 9, 87)
+}
+
 body {
-	background-color: #0BB6BD;
+	background-color: #9837cf;
 }
 
 @keyframes pulsar {

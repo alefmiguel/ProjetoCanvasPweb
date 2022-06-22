@@ -5,8 +5,17 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title> NAVE ESPACIAL </title>
+	<script src="teclado.js"></script>
+	<script src="tiro.js"></script>
+	<script src="fundo.js"></script>
+	<script src="animacao.js"></script>
+	<script src="nave.js"></script>
+	<link rel="stylesheet" href="parallax.css">
+	<link rel="shortcut icon" href="nave.png" type="image/png">
 </head>
 <body>
+	<h1> NAVE ESPACIAL </h1>
+
 	<canvas id="canvas-fundo" width="500" height="500"></canvas>
 
 	<script> // MAIN DO JS
@@ -30,19 +39,13 @@
 
 		// para que todas sejam carregadas...
 		var carregadas = 0;
-		var total = 3;
+		var total = 4;
 
 		// todas as imagems convertem na mesma função...
 		imgEspaco.onload = carregando;
 		imgEstrelas.onload = carregando;
 		imgNuvens.onload = carregando;
-
-		imgNave.onload = function() {
-			nave.x = canvas.width / 2 - imgNave.width / 2;
-			nave.y = canvas.height - imgNave.height;
-			nave.velocidade = 5;
-			animacao.ligar();
-		}
+		imgNave.onload = carregando;
 
 		// vai aumentando até chegar no total...
 		function carregando() {
@@ -52,23 +55,27 @@
 
 		// função base para todo o projeto
 		function iniciar() {
-			// separar as variáveis para trabalhar melhor...
-			var canvas = document.querySelector('#canvas-fundo');var ctx = canvas.getContext('2d'); 
-
 			// instanciando os objetos do tipo fundo...
 			var fundoEspaco = new Fundo(ctx, imgEspaco);
 			var fundoEstrelas = new Fundo(ctx, imgEstrelas);
 			var fundoNuvens = new Fundo(ctx, imgNuvens);
+			var nave = new Nave(ctx, teclado, imgNave);
 
 			// parallax => objetos com velocidades diferentes
-			fundoEspaco.velocidade = 3;
-			fundoEstrelas.velocidade = 7;
-			fundoNuvens.velocidade = 10;
+			fundoEspaco.velocidade = 2;
+			fundoEstrelas.velocidade = 5;
+			fundoNuvens.velocidade = 3;
 
-			var animacao = new Animacao(ctx);
+			nave.x = canvas.width / 2 - imgNave.width / 2;
+			nave.y = canvas.height - imgNave.height;
+			nave.velocidade = 5;
+
 			animacao.novoSprite(fundoEspaco);
 			animacao.novoSprite(fundoEstrelas);
 			animacao.novoSprite(fundoNuvens);
+			animacao.novoSprite(nave);
+
+			teclado.disparou(ESPAÇO, () => nave.atirar());
 			animacao.ligar();
 		}
 	</script> 

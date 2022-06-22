@@ -9,7 +9,7 @@ function Tiro(ctx, nave) {
 	this.y = nave.y - this.altura;
 	this.velocidade = 10;
 	this.cor = 'red';
-}
+} 
 
 Tiro.prototype = {
 	atualizar: function() {
